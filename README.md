@@ -2,6 +2,60 @@ Wine Quality Analysis
 ================
 Anthony Cuccia, Kasey Cohen, and Cole Moore
 2025-05-05
+## Business Understanding
+
+Good quality wine is typically characterized by a balance of several factors including acidity, tannins, alcohol content, sweetness, and the wine's overall structure. 
+
+Wine quality is often judged by consumers based on taste preferences, which may vary by region, culture, and even personal preference. Generally, higher-quality wines tend to have:
+
+- Well-balanced acidity and alcohol levels  
+- Appropriate residual sugar content  
+- Fewer defects (e.g., high volatile acidity)
+
+Wine ratings, like those used in this dataset, are often influenced by expert panels and consumer reviews, which typically rate the wines on a scale (e.g., 1–10).
+
+Factors such as the vineyard’s *terroir* (environmental factors), the grape variety, and production techniques such as fermentation temperature and time also play significant roles in determining the final quality.
+
+## Data Understanding
+
+The dataset used for this analysis comes from the UCI Wine Quality Database and includes chemical and sensory attributes of red and white wines, specifically:
+
+- **Fixed Acidity**: Influences the taste of the wine, contributing to its tartness and aging potential.  
+- **Volatile Acidity**: A measure of wine spoilage, typically an undesirable trait at high levels.  
+- **Citric Acid**: Contributes to the wine's freshness and acidity.  
+- **Residual Sugar**: Impacts the sweetness of the wine.  
+- **Chlorides**: Higher levels can result in undesirable salty flavors.  
+- **Free Sulfur Dioxide**: Helps preserve wine but excessive levels can result in an unpleasant taste.  
+- **Total Sulfur Dioxide**: A form of sulfur used in wine preservation.  
+- **Density**: Affects the mouthfeel and body of the wine.  
+- **pH**: Influences the wine's acidity.  
+- **Sulphates**: Adds to the wine's preservation and stability.  
+- **Alcohol**: A key factor influencing the body and taste of wine.  
+- **Quality**: A subjective rating assigned by consumers and wine experts.
+
+This dataset has no missing values and consists of **6,497 instances** from both red and white wines, providing a sufficient sample for analysis.
+
+## Assumptions Check for Statistical Tests
+
+For the t-test used to compare the means of red and white wine quality, we must check the assumptions of **normality** and **variance homogeneity**:
+
+### Normality
+We assume that the distribution of wine quality scores for both red and white wines is approximately normal. To verify this, we can:
+
+- Conduct **Shapiro-Wilk tests** for normality  
+- Visually inspect **histograms** and **Q-Q plots** for both types of wine
+
+### Homogeneity of Variances
+The assumption of equal variances between the two groups (red and white wines) can be tested using **Levene’s test**.  
+- If the variances are unequal, we may need to use a **Welch's t-test** instead of a standard t-test.
+
+---
+
+For the **correlation tests**, we assume:
+
+- **Linearity** between the variables (e.g., alcohol and quality)  
+- **Normality of residuals**, which can be checked using **Q-Q plots**  
+- **Independence** of the observations
 
 ## Purpose
 
@@ -145,14 +199,12 @@ ggplot(data, aes(x = factor(quality), fill = type)) +
 
 ![Distribution of Quality Scores by Wine
 Type](4_25_Capstone_-Complete1-_.Rmd-_files/figure-gfm/quality-distribution-1.png)
-\> Red wine ratings have had stayed mainly in the five to six ranges.
-White wine ratings had higher ratings with six, seven, and eight.
-Reveals whether one wine type generally receives higher ratings.
-Additonally, white wine has an overall higher rating than red wine and
-shows an overall wider spread than it. In conclusion this can mean that
-white wine is more enjoyed than red wine to consumers. Another reason
-could be that white wine also outnumbers red wine in the amount of
-observations.
+> Red wine ratings have mostly stayed in the 5 to 6 range, while white wine ratings are more frequently observed in the 6, 7, and 8 range.  
+> This suggests that one wine type—white wine—generally receives higher ratings.  
+> Additionally, white wine shows both a higher average rating and a wider spread in scores compared to red wine.  
+> This could indicate that white wine is more widely enjoyed by consumers.  
+> Another possible explanation is that the dataset contains more observations for white wine than red wine, which may influence the overall rating distribution.
+
 
 ### Chemical Properties
 
@@ -178,33 +230,18 @@ Chemical Properties by Wine
 Type](4_25_Capstone_-Complete1-_.Rmd-_files/figure-gfm/chemical-boxplots-3.png)![Key
 Chemical Properties by Wine
 Type](4_25_Capstone_-Complete1-_.Rmd-_files/figure-gfm/chemical-boxplots-4.png)
-\> The first box-plot compares alcohol levels for red and white wine.
-The white wine has a higher median than the red wine and most of the
-white wine’s data points are clustered towards the top while the red
-wine’s data points are clustered more towards the bottom. This means
-that on average, white wine contains more alcohol than red wine. The
-second box-plot represents ph levels of both types of wine. The higher
-the ph level, the less acidic the, which we see with the white wine. Red
-wine acoording to the box plots has a higher acidic level. The third
-box-plot compares the levels of residual sugar. While looking at the
-box-plot, one could infer that since white wine data points cluster
-towards the top, it is safe to say that white wine tends to be sweeter
-than red wine since the red wine data points are clustered more twoards
-the bottom. Finally, the last box-plot compares the wines’ data based
-off of volatile acidity. While studying the box-plot, it is shown that
-the red wine quartile range has a higher value than the white wine’s
-range, meaning that red wine tends to have a higher volatile acidity.
-One question to ask would be “What is the difference between ph level
-testing and volatile acidity?” The main difference is that the two
-measure different ideas of acid. Ph levels are often the measure how
-strong the acid feeling is while you consume something acidic. On the
-contrary volatile acidity “is a measure of the low molecular weight (or
-steam distillable) fatty acids in wine and is generally percieved as the
-odour of vinegar” (Australian Wine Research Institute, 2018, p. 2).
-Lastly, these are important chemical differences to look into becasue
-most of the time it depends on what the consumer is preferring, whether
-it is a less acidic feeling while drinking, the amount of alcohol, the
-amount of sugar, or the amount of fatty acids in their wine.
+> The first box plot compares alcohol levels in red and white wine. White wine has a higher median alcohol level, with most of its data points clustered toward the top of the range. In contrast, red wine’s alcohol levels are more concentrated toward the lower end. This suggests that, on average, white wine contains more alcohol than red wine.  
+> 
+> The second box plot represents pH levels for both wine types. Since higher pH means lower acidity, the data show that white wine is less acidic than red wine, which has lower pH levels on average.  
+> 
+> The third box plot compares residual sugar levels. The clustering of white wine values toward the top indicates that white wine tends to be sweeter than red wine, whose values are lower and more tightly grouped at the bottom.  
+> 
+> The fourth box plot compares volatile acidity levels. Red wine has a wider interquartile range and higher values overall, indicating that it typically has higher volatile acidity than white wine.  
+> 
+> A key question here is: **What’s the difference between pH level and volatile acidity?** While pH measures the strength of acidity (how acidic something *feels* on the palate), volatile acidity measures the concentration of steam-distillable fatty acids, often perceived as vinegar-like odors. According to the Australian Wine Research Institute (2018), volatile acidity is typically associated with spoilage or off-flavors.  
+> 
+> These chemical differences are important because consumer preferences vary. Some may prefer a less acidic mouthfeel, higher alcohol content, more sweetness, or lower volatile acidity. Understanding these traits helps explain wine quality ratings and market appeal.
+
 
 ### Correlation Heatmaps
 
