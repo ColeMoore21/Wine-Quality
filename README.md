@@ -1,4 +1,5 @@
-Non-Parametric Analysis
+Capstone 3: Wine Quality Analysis
+Cole Moore
 ================
 
 ## Business Understanding
