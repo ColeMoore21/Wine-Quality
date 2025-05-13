@@ -1,4 +1,8 @@
-Non-Parametric Analysis
+Wine Quality Analysis
+================
+Anthony Cuccia, Kasey Cohen, and Cole Moore
+2025-05-05
+
 ================
 
 ## Business Understanding
