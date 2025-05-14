@@ -1,10 +1,13 @@
 ---
-title: "README"
-output:
- github_document:
- pandoc_args: ["--wrap=none"]
-always_allow_html: true
+title: "Wine Quality Analysis"
+output: 
+  html_document:
+    df_print: paged
+knitr:
+  opts_knit:
+    root.dir: "C:/Users/cmoor/OneDrive/Documents/GitHub/Wine-Quality"
 ---
+
 
 ## Business Understanding
 Good quality wine is typically characterized by a balance of several factors including acidity, tannins, alcohol content, sweetness, and the wine's overall structure. Wine quality is often judged by consumers based on taste preferences, which may vary by region, culture, and even personal preference. Generally, higher-quality wines tend to have well-balanced acidity and alcohol levels, appropriate residual sugar content, and fewer defects, such as high volatile acidity. Wine ratings, like those used in this dataset, are often influenced by expert panels and consumer reviews, which typically rate the wines on a scale (e.g., 1-10). Factors such as the vineyard’s terroir (environmental factors), the grape variety, and production techniques such as fermentation temperature and time, also play significant roles in determining the final quality.
@@ -184,6 +187,8 @@ glue::glue("Red: {nrow(red)}, White: {nrow(white)}, Total: {nrow(data)}")
 glimpse(data)
 summary(data)
 ```
+
+**Interpretation of `non-parametric-analysis`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question.
 > The main reason why we ran this code was to see summary statistics for red and white wine. While doing this, we see that there are more white wine samples than red wine.
 
 ## Missing Values
@@ -201,6 +206,8 @@ ggplot(data, aes(x = factor(quality), fill = type)) +
        x = "Quality Score", y = "Count") +
   theme_minimal()
 ```
+
+**Interpretation of `quality-distribution`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question.
 > Red wine ratings have had stayed mainly in the five to six ranges. White wine ratings had higher ratings with six, seven, and eight. Reveals whether one wine type generally receives higher ratings. Additonally, white wine has an overall higher rating than red wine and shows an overall wider spread than it. In conclusion this can mean that white wine is more enjoyed than red wine to consumers. Another reason could be that white wine also outnumbers red wine in the amount of observations.
 
 ### Chemical Properties
@@ -217,6 +224,8 @@ plot_list <- lapply(features, function(feat) {
 a <- plot_list[[1]]
 for(p in plot_list) print(p)
 ```
+
+**Interpretation of `chemical-boxplots`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question.
 > The first box-plot compares alcohol levels for red and white wine. The white wine has a higher median than the red wine and most of the white wine's data points are clustered towards the top while the red wine's data points are clustered more towards the bottom. This means that on average, white wine contains more alcohol than red wine.
 
 
@@ -243,6 +252,8 @@ corrplot(cor_red,   main = "Red Wine",   mar = c(0,0,1,0))
 corrplot(cor_white, main = "White Wine", mar = c(0,0,1,0))
 par(mfrow = c(1,1))
 ```
+
+**Interpretation of `correlation-heatmaps`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question.
 > Similarly to the box plots above, these correlational heatmaps only test the chemical compisitions in wine. However, the box-plots only compared the marginal distributions between the red and white wine. The correlational heatmaps test the relationship between quality and chemicals that are inside. The darer the circle, the strongher the correlation. The darker the blue, the more of a positve correlation while if it has a red shade, it is closer to a negative correlation. While looking at the some of the circles for red wine, it is clear that ph and alcohol do not have that strong of a coreelation with one another because the circle is light blue, meaning that its value is not close to one or negative one. One strong relationship that one could pull from the heatmap is that alcohol and quality have a strong correlational relationship. Compared to white wine, it has a slightly darker color menaing that the relationship between quality and alcohol is stronger in red.
 
 ## Statistical Testing
@@ -268,4 +279,4 @@ list(
 > For this table, we decided to run a pearson correlation between qualtiy and alcohol level. We already compared the two wines with these statistics in the heatmap above. Similarly, it is proven that both wines have a strong relationship when it comes quality and alcohol. Additionally, it is also proven that red wine has a stronger link between the two than white wine but only by a small marigin. Both of the p-vaulues being significant proves these tests are legit and the results we gathered during this study is reliable.
 
 ## Conclusion
-> Overall, our exploratory analysis concludes that white wines are favored more than red wines. White wine has earned a score of 5.88, while red wine has earned a score of 5.64, with a statistically significant difference of 0.24. Alcohol remains one of the strongest determining factors for consumers with red wine having a higher score than white (.48 > .44). Additionally, volotility acididty has a stringer affect on red wine with a score of 0.39, compared to white which had a -0.19, showing that less volotility acididty is favored. Sweetness and ph levels played less of a role in quality according to the heatmap, however white wine had a sweeter taste while red wine had a higher ph level. In conclusion the observation can be definite is that white wine producers should stick to sweeter wines while red wine producers should stick to a higher level ph method of making wine. 
+> Overall, our exploratory analysis concludes that white wines are favored more than red wines. White wine has earned a score of 5.88, while red wine has earned a score of 5.64, with a statistically significant difference of 0.24. Alcohol remains one of the strongest determining factors for consumers with red wine having a higher score than white (.48 > .44). Additionally, volotility acididty has a stringer affect on red wine with a score of 0.39, compared to white which had a -0.19, showing that less volotility acididty is favored. Sweetness and ph levels played less of a role in quality according to the heatmap, however white wine had a sweeter taste while red wine had a higher ph level. In conclusion the observation can be definite is that white wine producers should stick to sweeter wines while red wine producers should stick to a higher level ph method of making wine.
