@@ -1,64 +1,29 @@
-Capstone 3: Wine Quality Analysis
-Cole Moore
+Non-Parametric Analysis
 ================
 
 ## Business Understanding
 
-Good quality wine is typically characterized by a balance of several
-factors including acidity, tannins, alcohol content, sweetness, and the
-wine’s overall structure. Wine quality is often judged by consumers
-based on taste preferences, which may vary by region, culture, and even
-personal preference. Generally, higher-quality wines tend to have
-well-balanced acidity and alcohol levels, appropriate residual sugar
-content, and fewer defects, such as high volatile acidity. Wine ratings,
-like those used in this dataset, are often influenced by expert panels
-and consumer reviews, which typically rate the wines on a scale (e.g.,
-1-10). Factors such as the vineyard’s terroir (environmental factors),
-the grape variety, and production techniques such as fermentation
-temperature and time, also play significant roles in determining the
-final quality.
+Good quality wine is typically characterized by a balance of several factors including acidity, tannins, alcohol content, sweetness, and the wine’s overall structure. Wine quality is often judged by consumers based on taste preferences, which may vary by region, culture, and even personal preference. Generally, higher-quality wines tend to have well-balanced acidity and alcohol levels, appropriate residual sugar content, and fewer defects, such as high volatile acidity. Wine ratings, like those used in this dataset, are often influenced by expert panels and consumer reviews, which typically rate the wines on a scale (e.g., 1-10). Factors such as the vineyard’s terroir (environmental factors), the grape variety, and production techniques such as fermentation temperature and time, also play significant roles in determining the final quality.
 
 ## Data Understanding
 
-The dataset used for this analysis comes from the UCI Wine Quality
-Database and includes chemical and sensory attributes of red and white
-wines, specifically:
+The dataset used for this analysis comes from the UCI Wine Quality Database and includes chemical and sensory attributes of red and white wines, specifically:
 
-Fixed Acidity: Influences the taste of the wine, contributing to its
-tartness and aging potential. Volatile Acidity: A measure of wine
-spoilage, typically an undesirable trait at high levels. Citric Acid:
-Contributes to the wine’s freshness and acidity. Residual Sugar: Impacts
-the sweetness of the wine. Chlorides: Higher levels can result in
-undesirable salty flavors. Free Sulfur Dioxide: Helps preserve wine but
-excessive levels can result in an unpleasant taste. Total Sulfur
-Dioxide: A form of sulfur used in wine preservation. Density: Affects
-the mouthfeel and body of the wine. pH: Influences the wine’s acidity.
-Sulphates: Adds to the wine’s preservation and stability. Alcohol: A key
-factor influencing the body and taste of wine. Quality: A subjective
-rating assigned by consumers and wine experts.
+Fixed Acidity: Influences the taste of the wine, contributing to its tartness and aging potential. Volatile Acidity: A measure of wine spoilage, typically an undesirable trait at high levels. Citric Acid: Contributes to the wine’s freshness and acidity. Residual Sugar: Impacts the sweetness of the wine. Chlorides: Higher levels can result in undesirable salty flavors. Free Sulfur Dioxide: Helps preserve wine but excessive levels can result in an unpleasant taste. Total Sulfur Dioxide: A form of sulfur used in wine preservation. Density: Affects the mouthfeel and body of the wine. pH: Influences the wine’s acidity. Sulphates: Adds to the wine’s preservation and stability. Alcohol: A key factor influencing the body and taste of wine. Quality: A subjective rating assigned by consumers and wine experts.
 
 ## What Types are the Data?
 
-Ratio: Fixed Acidity, Volatile Acidity, Citric Acid, Residual Sugar,
-Chlorides, Free Sulfur Dioxide, Total Sulfur Dioxide, Density,
-Sulphates, Alcohol
+Ratio: Fixed Acidity, Volatile Acidity, Citric Acid, Residual Sugar, Chlorides, Free Sulfur Dioxide, Total Sulfur Dioxide, Density, Sulphates, Alcohol
 
 Interval: pH
 
 Ordinal: Quality
 
-This dataset has no missing values and consists of 6,497 instances from
-both red and white wines, providing a sufficient sample for analysis.
+This dataset has no missing values and consists of 6,497 instances from both red and white wines, providing a sufficient sample for analysis.
 
 ## Purpose
 
-> We needed to extract some “actionable” insights from the UCI Wine
-> Quality Data Set . The purpose is that a wine producer has hired us to
-> better understand what factors affect wine quality. The producer can
-> also look at which production factors have an effect on rating scores
-> by consumers. The reason why we utilized exploratory data analysis is
-> show different distributions of certain production techniques and why
-> consumers probably favor one type of wine over the other.
+> We needed to extract some “actionable” insights from the UCI Wine Quality Data Set . The purpose is that a wine producer has hired us to better understand what factors affect wine quality. The producer can also look at which production factors have an effect on rating scores by consumers. The reason why we utilized exploratory data analysis is show different distributions of certain production techniques and why consumers probably favor one type of wine over the other.
 
 ## Loading and Installing the Required Packages and Data Loading and Merging
 
@@ -234,10 +199,8 @@ ggplot(filter(data, type == "red"), aes(x = alcohol, y = quality)) +
 ```
 
 <figure>
-<img src="README_files/figure-gfm/non-parametric-analysis-1.png"
-alt="Spearman’s Rank Correlation and Mann-Whitney U Test Results" />
-<figcaption aria-hidden="true">Spearman’s Rank Correlation and
-Mann-Whitney U Test Results</figcaption>
+<img src="README_files/figure-gfm/non-parametric-analysis-1.png" alt="Spearman’s Rank Correlation and Mann-Whitney U Test Results" />
+<figcaption aria-hidden="true">Spearman’s Rank Correlation and Mann-Whitney U Test Results</figcaption>
 </figure>
 
 ``` r
@@ -250,10 +213,8 @@ ggplot(filter(data, type == "white"), aes(x = alcohol, y = quality)) +
 ```
 
 <figure>
-<img src="README_files/figure-gfm/non-parametric-analysis-2.png"
-alt="Spearman’s Rank Correlation and Mann-Whitney U Test Results" />
-<figcaption aria-hidden="true">Spearman’s Rank Correlation and
-Mann-Whitney U Test Results</figcaption>
+<img src="README_files/figure-gfm/non-parametric-analysis-2.png" alt="Spearman’s Rank Correlation and Mann-Whitney U Test Results" />
+<figcaption aria-hidden="true">Spearman’s Rank Correlation and Mann-Whitney U Test Results</figcaption>
 </figure>
 
 ``` r
@@ -266,10 +227,8 @@ ggplot(data, aes(x = type, y = quality, fill = type)) +
 ```
 
 <figure>
-<img src="README_files/figure-gfm/non-parametric-analysis-3.png"
-alt="Spearman’s Rank Correlation and Mann-Whitney U Test Results" />
-<figcaption aria-hidden="true">Spearman’s Rank Correlation and
-Mann-Whitney U Test Results</figcaption>
+<img src="README_files/figure-gfm/non-parametric-analysis-3.png" alt="Spearman’s Rank Correlation and Mann-Whitney U Test Results" />
+<figcaption aria-hidden="true">Spearman’s Rank Correlation and Mann-Whitney U Test Results</figcaption>
 </figure>
 
 ``` r
@@ -364,9 +323,7 @@ summary(data)
     ##                    
     ## 
 
-> The main reason why we ran this code was to see summary statistics for
-> red and white wine. While doing this, we see that there are more white
-> wine samples than red wine.
+**Interpretation of `non-parametric-analysis`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question. \> The main reason why we ran this code was to see summary statistics for red and white wine. While doing this, we see that there are more white wine samples than red wine.
 
 ## Missing Values
 
@@ -399,15 +356,12 @@ ggplot(data, aes(x = factor(quality), fill = type)) +
   theme_minimal()
 ```
 
-![Distribution of Quality Scores by Wine
-Type](README_files/figure-gfm/quality-distribution-1.png) \> Red wine
-ratings have had stayed mainly in the five to six ranges. White wine
-ratings had higher ratings with six, seven, and eight. Reveals whether
-one wine type generally receives higher ratings. Additonally, white wine
-has an overall higher rating than red wine and shows an overall wider
-spread than it. In conclusion this can mean that white wine is more
-enjoyed than red wine to consumers. Another reason could be that white
-wine also outnumbers red wine in the amount of observations.
+<figure>
+<img src="README_files/figure-gfm/quality-distribution-1.png" alt="Distribution of Quality Scores by Wine Type" />
+<figcaption aria-hidden="true">Distribution of Quality Scores by Wine Type</figcaption>
+</figure>
+
+**Interpretation of `quality-distribution`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question. \> Red wine ratings have had stayed mainly in the five to six ranges. White wine ratings had higher ratings with six, seven, and eight. Reveals whether one wine type generally receives higher ratings. Additonally, white wine has an overall higher rating than red wine and shows an overall wider spread than it. In conclusion this can mean that white wine is more enjoyed than red wine to consumers. Another reason could be that white wine also outnumbers red wine in the amount of observations.
 
 ### Chemical Properties
 
@@ -425,46 +379,17 @@ a <- plot_list[[1]]
 for(p in plot_list) print(p)
 ```
 
-![Key Chemical Properties by Wine
-Type](README_files/figure-gfm/chemical-boxplots-1.png)![Key Chemical
-Properties by Wine
-Type](README_files/figure-gfm/chemical-boxplots-2.png)![Key Chemical
-Properties by Wine
-Type](README_files/figure-gfm/chemical-boxplots-3.png)![Key Chemical
-Properties by Wine
-Type](README_files/figure-gfm/chemical-boxplots-4.png) \> The first
-box-plot compares alcohol levels for red and white wine. The white wine
-has a higher median than the red wine and most of the white wine’s data
-points are clustered towards the top while the red wine’s data points
-are clustered more towards the bottom. This means that on average, white
-wine contains more alcohol than red wine.
+![Key Chemical Properties by Wine Type](README_files/figure-gfm/chemical-boxplots-1.png)![Key Chemical Properties by Wine Type](README_files/figure-gfm/chemical-boxplots-2.png)![Key Chemical Properties by Wine Type](README_files/figure-gfm/chemical-boxplots-3.png)![Key Chemical Properties by Wine Type](README_files/figure-gfm/chemical-boxplots-4.png)
 
-The second box-plot represents ph levels of both types of wine. The
-higher the ph level, the less acidic the, which we see with the white
-wine. Red wine acoording to the box plots has a higher acidic level.
+**Interpretation of `chemical-boxplots`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question. \> The first box-plot compares alcohol levels for red and white wine. The white wine has a higher median than the red wine and most of the white wine’s data points are clustered towards the top while the red wine’s data points are clustered more towards the bottom. This means that on average, white wine contains more alcohol than red wine.
 
-The third box-plot compares the levels of residual sugar. While looking
-at the box-plot, one could infer that since white wine data points
-cluster towards the top, it is safe to say that white wine tends to be
-sweeter than red wine since the red wine data points are clustered more
-twoards the bottom.
+The second box-plot represents ph levels of both types of wine. The higher the ph level, the less acidic the, which we see with the white wine. Red wine acoording to the box plots has a higher acidic level.
 
-Finally, the last box-plot compares the wines’ data based off of
-volatile acidity. While studying the box-plot, it is shown that the red
-wine quartile range has a higher value than the white wine’s range,
-meaning that red wine tends to have a higher volatile acidity. One
-question to ask would be “What is the difference between ph level
-testing and volatile acidity?” The main difference is that the two
-measure different ideas of acid. Ph levels are often the measure how
-strong the acid feeling is while you consume something acidic. On the
-contrary volatile acidity “is a measure of the low molecular weight (or
-steam distillable) fatty acids in wine and is generally percieved as the
-odour of vinegar” (Australian Wine Research Institute, 2018, p. 2).
+The third box-plot compares the levels of residual sugar. While looking at the box-plot, one could infer that since white wine data points cluster towards the top, it is safe to say that white wine tends to be sweeter than red wine since the red wine data points are clustered more twoards the bottom.
 
-Lastly, these are important chemical differences to look into becasue
-most of the time it depends on what the consumer is preferring, whether
-it is a less acidic feeling while drinking, the amount of alcohol, the
-amount of sugar, or the amount of fatty acids in their wine.
+Finally, the last box-plot compares the wines’ data based off of volatile acidity. While studying the box-plot, it is shown that the red wine quartile range has a higher value than the white wine’s range, meaning that red wine tends to have a higher volatile acidity. One question to ask would be “What is the difference between ph level testing and volatile acidity?” The main difference is that the two measure different ideas of acid. Ph levels are often the measure how strong the acid feeling is while you consume something acidic. On the contrary volatile acidity “is a measure of the low molecular weight (or steam distillable) fatty acids in wine and is generally percieved as the odour of vinegar” (Australian Wine Research Institute, 2018, p. 2).
+
+Lastly, these are important chemical differences to look into becasue most of the time it depends on what the consumer is preferring, whether it is a less acidic feeling while drinking, the amount of alcohol, the amount of sugar, or the amount of fatty acids in their wine.
 
 ### Correlation Heatmaps
 
@@ -478,31 +403,15 @@ corrplot(cor_white, main = "White Wine", mar = c(0,0,1,0))
 ```
 
 <figure>
-<img src="README_files/figure-gfm/correlation-heatmaps-1.png"
-alt="Correlation Matrices for Red and White Wines" />
-<figcaption aria-hidden="true">Correlation Matrices for Red and White
-Wines</figcaption>
+<img src="README_files/figure-gfm/correlation-heatmaps-1.png" alt="Correlation Matrices for Red and White Wines" />
+<figcaption aria-hidden="true">Correlation Matrices for Red and White Wines</figcaption>
 </figure>
 
 ``` r
 par(mfrow = c(1,1))
 ```
 
-> Similarly to the box plots above, these correlational heatmaps only
-> test the chemical compisitions in wine. However, the box-plots only
-> compared the marginal distributions between the red and white wine.
-> The correlational heatmaps test the relationship between quality and
-> chemicals that are inside. The darer the circle, the strongher the
-> correlation. The darker the blue, the more of a positve correlation
-> while if it has a red shade, it is closer to a negative correlation.
-> While looking at the some of the circles for red wine, it is clear
-> that ph and alcohol do not have that strong of a coreelation with one
-> another because the circle is light blue, meaning that its value is
-> not close to one or negative one. One strong relationship that one
-> could pull from the heatmap is that alcohol and quality have a strong
-> correlational relationship. Compared to white wine, it has a slightly
-> darker color menaing that the relationship between quality and alcohol
-> is stronger in red.
+**Interpretation of `correlation-heatmaps`:** This visualization or summary highlights a key trend or distribution in the data. For example, examine how the variable in question relates to wine quality or type. Look for outliers, skewness, or differences that inform the business question. \> Similarly to the box plots above, these correlational heatmaps only test the chemical compisitions in wine. However, the box-plots only compared the marginal distributions between the red and white wine. The correlational heatmaps test the relationship between quality and chemicals that are inside. The darer the circle, the strongher the correlation. The darker the blue, the more of a positve correlation while if it has a red shade, it is closer to a negative correlation. While looking at the some of the circles for red wine, it is clear that ph and alcohol do not have that strong of a coreelation with one another because the circle is light blue, meaning that its value is not close to one or negative one. One strong relationship that one could pull from the heatmap is that alcohol and quality have a strong correlational relationship. Compared to white wine, it has a slightly darker color menaing that the relationship between quality and alcohol is stronger in red.
 
 ## Statistical Testing
 
@@ -519,11 +428,7 @@ tidy(ttest)
     ## 1   -0.242      5.64      5.88     -10.1 8.17e-24     2951.   -0.289    -0.195
     ## # ℹ 2 more variables: method <chr>, alternative <chr>
 
-> The purpose of this is to run a two-sample t-test comparing the means
-> of white and red wine. Estimate one represents the mean quality red
-> wine while Estimate 2 represents the mean quality of white wine. As
-> shown, white wine has a higher mean quality proving that white wine is
-> favored more by consumers.
+> The purpose of this is to run a two-sample t-test comparing the means of white and red wine. Estimate one represents the mean quality red wine while Estimate 2 represents the mean quality of white wine. As shown, white wine has a higher mean quality proving that white wine is favored more by consumers.
 
 ### Alcohol vs Quality Correlation
 
@@ -551,27 +456,8 @@ list(
     ##      <dbl>     <dbl>     <dbl>     <int>    <dbl>     <dbl> <chr>    <chr>      
     ## 1    0.436      33.9 5.61e-226      4896    0.413     0.458 Pearson… two.sided
 
-> For this table, we decided to run a pearson correlation between
-> qualtiy and alcohol level. We already compared the two wines with
-> these statistics in the heatmap above. Similarly, it is proven that
-> both wines have a strong relationship when it comes quality and
-> alcohol. Additionally, it is also proven that red wine has a stronger
-> link between the two than white wine but only by a small marigin. Both
-> of the p-vaulues being significant proves these tests are legit and
-> the results we gathered during this study is reliable.
+> For this table, we decided to run a pearson correlation between qualtiy and alcohol level. We already compared the two wines with these statistics in the heatmap above. Similarly, it is proven that both wines have a strong relationship when it comes quality and alcohol. Additionally, it is also proven that red wine has a stronger link between the two than white wine but only by a small marigin. Both of the p-vaulues being significant proves these tests are legit and the results we gathered during this study is reliable.
 
 ## Conclusion
 
-> Overall, our exploratory analysis concludes that white wines are
-> favored more than red wines. White wine has earned a score of 5.88,
-> while red wine has earned a score of 5.64, with a statistically
-> significant difference of 0.24. Alcohol remains one of the strongest
-> determining factors for consumers with red wine having a higher score
-> than white (.48 \> .44). Additionally, volotility acididty has a
-> stringer affect on red wine with a score of 0.39, compared to white
-> which had a -0.19, showing that less volotility acididty is favored.
-> Sweetness and ph levels played less of a role in quality according to
-> the heatmap, however white wine had a sweeter taste while red wine had
-> a higher ph level. In conclusion the observation can be definite is
-> that white wine producers should stick to sweeter wines while red wine
-> producers should stick to a higher level ph method of making wine.
+> Overall, our exploratory analysis concludes that white wines are favored more than red wines. White wine has earned a score of 5.88, while red wine has earned a score of 5.64, with a statistically significant difference of 0.24. Alcohol remains one of the strongest determining factors for consumers with red wine having a higher score than white (.48 \> .44). Additionally, volotility acididty has a stringer affect on red wine with a score of 0.39, compared to white which had a -0.19, showing that less volotility acididty is favored. Sweetness and ph levels played less of a role in quality according to the heatmap, however white wine had a sweeter taste while red wine had a higher ph level. In conclusion the observation can be definite is that white wine producers should stick to sweeter wines while red wine producers should stick to a higher level ph method of making wine.

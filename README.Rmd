@@ -1,11 +1,9 @@
 ---
-title: "Wine Quality Analysis"
+title: "README"
 output: 
-  html_document:
-    df_print: paged
-knitr:
-  opts_knit:
-    root.dir: "C:/Users/cmoor/OneDrive/Documents/GitHub/Wine-Quality"
+  github_document:
+    pandoc_args: ["--wrap=none"]
+always_allow_html: true
 ---
 
 
